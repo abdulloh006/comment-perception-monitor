@@ -151,7 +151,7 @@ with overview:
                                 range=SENTIMENT_COLOURS), legend=None),
                 tooltip=["sentiment", "comments"],
             ).properties(height=220),
-            use_container_width=True,
+            width="stretch",
         )
     with right:
         st.markdown("**Toxicity scores**")
@@ -162,7 +162,7 @@ with overview:
                     y=alt.Y("count():Q", title="Comments"),
                 ).properties(height=220)
                 + alt.Chart(pd.DataFrame({"t": [threshold]})).mark_rule(strokeDash=[4, 4]).encode(x="t:Q"),
-                use_container_width=True,
+                width="stretch",
             )
         else:
             st.caption("No toxicity model for these comments yet.")
@@ -177,7 +177,7 @@ with questions:
     else:
         st.caption("Questions viewers are asking, most-liked first. Detected by a simple rule, "
                    "so rhetorical questions slip in.")
-        st.dataframe(q[["text", "likes", "replies"]], hide_index=True, use_container_width=True)
+        st.dataframe(q[["text", "likes", "replies"]], hide_index=True, width="stretch")
 
 # ------------------------------------------------------------------ toxic comments
 with toxic:
@@ -221,7 +221,7 @@ with everything:
     if only_questions:
         view = view[view["is_question"]]
     columns = ["text", "likes", "replies", "published_at", "lang", "sentiment", "toxicity", "is_question"]
-    st.dataframe(view[columns], hide_index=True, use_container_width=True,
+    st.dataframe(view[columns], hide_index=True, width="stretch",
                  column_config={"toxicity": st.column_config.ProgressColumn(
                      "toxicity", min_value=0.0, max_value=1.0, format="%.2f")})
     st.download_button("Download CSV", view[columns].to_csv(index=False).encode("utf-8"),

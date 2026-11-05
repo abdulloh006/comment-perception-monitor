@@ -59,7 +59,7 @@ def explain(clf, text, n_steps=32):
         else:
             spans.append([word_id, start, end])
             scores.append(token_scores[token_index])
-    words = [text[s:e] for _, s, e in spans]
+    words = [text[s:e].strip() for _, s, e in spans]  # RoBERTa-style offsets can include the leading space
 
     peak = max((abs(s) for s in scores), default=0) or 1.0
     return words, [s / peak for s in scores], prob
