@@ -1,1 +1,11 @@
-
+google-api-python-client>=2.100
+pandas>=2.0
+torch>=2.1
+transformers>=4.40
+sentencepiece>=0.2
+protobuf>=4.25
+captum>=0.7
+streamlit>=1.37
+altair>=5.0
+python-dotenv>=1.0
+pytest>=8.0

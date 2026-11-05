@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data and trained models (too large for Git; models live in Google Drive)
+data/
+models/*
+!models/README.md
