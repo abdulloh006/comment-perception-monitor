@@ -1,5 +1,7 @@
 # Comment Perception Monitor
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/abdulloh006/comment-perception-monitor/blob/main/notebooks/demo_colab.ipynb)
+
 Paste a YouTube link and get a dashboard showing how the comment section feels: its sentiment, how toxic it is, which comments are real questions, and **why** the model flagged a comment. Built for English and Korean comments.
 
 Deep Learning course project, Kyungdong University, Fall 2026.
@@ -58,6 +60,10 @@ Toxicity probability for harmless sentences that differ in one word:
 | You are an idiot. | 1.00 | 0.99 |
 
 DistilBERT beats the baseline on every overall metric yet still rates harmless identity statements as toxic. Word attributions confirm that the identity word itself drives the score. A dashboard built on this model would wrongly report the audiences of LGBTQ or Black creators as toxic. Higher F1 does not mean fairer.
+
+## Try it in Colab
+
+Click the **Open in Colab** badge at the top, switch the runtime to a T4 GPU, add your YouTube API key under 🔑 Secrets as `YOUTUBE_API_KEY`, and run the cells. The last cell can open the full dashboard through a temporary public link.
 
 ## Quick start (Windows)
 
